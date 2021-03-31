@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>회원가입</title>
+	</head>
+	<body>
+		<label>성명 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="name" name="name"></label><br>
+		<label>아이디 &nbsp;&nbsp;&nbsp;<input type="text" id="id" name="id" maxlength="8"></label>
+		<input type="button" value="ID중복체크">(영문자+특수문자 : 6~10자)<br>
+		<label>비밀번호 &nbsp;&nbsp;&nbsp;<input type="pw" id="pw"></label><br>
+		<label>비밀번호 확인<input type="pwc" id="pwc"></label><br>
+		
+		<label>생년월일<input type="text" id="birth" name="birth" size="6">년</label>
+		<label><input type="text" id="birth2" name="birth2" size="6">월</label>
+		<label><input type="text" id="birth3" name="birth3" size="6">일</label>
+		<label><input type="radio" name="year" value="양력" checked>양력</label>
+		<label><input type="radio" name="year" value="음력">음력</label><br>
+		
+		전화번호
+		<select name = "phonenum">
+   			<option value="02">02</option>
+   			<option value="032">032</option>
+   			<option value="042">042</option>
+    	</select>
+    	
+    	<label> - <input type="text" id="phonenum" name="phonenum" size="4"></label>
+    	<label> - <input type="text" id="phonenum2" name="phonenum2" size="4"></label>
+    	<br>
+    	
+    	휴대폰번호
+		<select name = "cellphone">
+   			<option value="010">010</option>
+   			<option value="011">011</option>
+   			<option value="016">016</option>
+    	</select>
+    	
+    	<label> - <input type="text" id="cellphone" name="cellphone" size="4"></label>
+    	<label> - <input type="text" id="cellphone2" name="cellphone2" size="4"></label>
+		<br>
+	
+		주소
+		<label><input type="text" id="addr" name="addr"></label>
+		<input type="button" value="우편번호찾기"><br>
+		<label><input type="text" id="addr2" name="addr2" size="50"></label><br>
+		<label><input type="text" id="addr3" name="addr3" size="50">상세 주소 입력</label><br>
+		
+		성별
+		<label><input type="radio" name="Ma" value="남자" checked>남자</label>
+		<label><input type="radio" name="Fa" value="여자">여자</label><br>
+		
+		직업
+		<select name = "job">
+   			<option value="프로그래머">프로그래머</option>
+   			<option value="회계사">회계사</option>
+   			<option value="공인중개사">공인중개사</option>
+    	</select>
+    	<br>
+    	
+    	이메일
+    	<label><input type="text" id="email" name="email" size="4">@</label>
+    	<select name = "email">
+   			<option value="네이버">naver.com</option>
+   			<option value="구글">gmail.com</option>
+   			<option value="다음">daum.net</option>
+    	</select>
+    	<br>
+    	
+    	이메일 수신 여부
+    	<label><input type="radio" name="yes" value="예" checked>아니오</label>
+		<label><input type="radio" name="no" value="아니오">예</label><br>
+	
+		<input type="button" value="회원가입">
+		<input type="button" value="취소">
+	</body>
+</html>
