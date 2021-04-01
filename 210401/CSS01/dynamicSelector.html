@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>동적 선택자</title>
+		<style>
+			.content div { /* content의 모든 자손 <div> */
+				display:inline-block;
+				background:blue;
+				width:100px;
+				height:50px;
+			}
+			
+			.content div:hover { /* content의 모든 자손 <div>에 마우스를 올렸을 때 */
+				background:yellow;
+			}
+			
+			.content div:active { /* content의 모든 자손 <div>를 클릭했을 때 */
+				background:red;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="content">
+		<div></div><div></div><div></div><div></div>
+	</body>
+</html>

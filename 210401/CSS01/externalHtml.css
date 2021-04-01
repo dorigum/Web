@@ -1,0 +1,77 @@
+@charset "UTF-8";
+
+#wrap {
+	margin:0 auto; /* 가운데 정렬 */
+	width:800px; /* 가운데 정렬을 하기 위해서는 width값이 있어야함*/
+	text-align:center /* wrap 안의 모든 내용을 가운데 정렬 */
+}
+
+#mainMenuBox {
+	height:35px;
+	line-height:35px; /* 줄 간격 : 수직으로 가운데 정렬 효과 */
+	background:#333;
+	margin-top:30px;
+	margin-bottom:30px;
+}
+
+#mainMenuBox ul {
+	padding-left:0;
+	margin:0;
+	list-style:none; /* type 없음 */
+}
+
+#mainMenuBox li {
+	float:left;
+	text-align:center;
+	width:25%; /* 상단 메뉴 25%로 균일하게 정렬 */
+}
+
+#mainMenuBox a {
+	text-decoration:none; /* <a> 태그 밑줄 없애기 */
+	color:white;
+	display:block; /* diplay:block 설정 안하면 글자 영역에만 검정색이 적용됨 */
+	font-size:14px;
+	font-weight:bold;
+}
+
+#mainMenuBox a:hover { /* 각 메뉴 항목에 마우스 올렸을 때 */
+	color:red;
+	text-decoration:underline;
+	background:black;	
+}
+
+table { /* 이미지 삽입된 부분 */
+	margin:0 auto;
+	width:600px;
+	margin-bottom:30px;
+}
+
+#prdName {
+	color:blue; /* 글자색 */
+	font-weight:bold; /* 굵게 */
+}
+
+#price { color:red; }
+
+.box { /* 공지사항 / 커뮤니티 */
+	border:solid 1px grey;
+	display:inline-block;
+	width:320px;
+	height:150px;
+	font-size:small;
+	border-radius:10px; /* 모서리 둥글게 처리 */
+	padding-left:20px;
+	padding-right:20px;
+	margin:10px;
+	text-align:left;
+}
+
+.box a { text-decoration:none; }
+.box a:hover { /* 각 <a> 태그 위에 마우스 올렸을 때 */
+	color:red;
+	text-decoration:underline; /* 각 <a> 태그 밑줄 보이기 */
+}
+
+img { margin-bottom:20px; }
+
+h4, hr { margin-bottom:10px; } /* 선 간격 조정 */

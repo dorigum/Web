@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+#wrap {
+	margin:0 auto;
+	width:1000px;
+	background:white;
+	color:white;
+}
+
+header {
+	background:#0C3;
+	text-align:right;		/* 내부 요소 오른쪽 정렬 */
+	padding-right:20px;
+	height:40px;
+	line-height:40px;		/* 줄 간격 - 수직으로 가운데 정렬 효과 */
+}
+
+#menuBox {
+	margin-top:10px;
+	margin-bottom:0;
+	height:35px;
+	line-height:35px;
+	background:orange;
+	text-align:center;
+	color:blue;
+}
+
+#subMenuBox {
+	height:35px;
+	line-height:35px;
+	background:#FF0;
+	text-align:center;
+	color:blue;
+}
+
+#sildeShowBox {
+	margin-top:10px;
+	background:blue;
+	text-align:center;
+	height:200px;
+	line-height:200px;
+}
+
+#content {
+	margin-top:10px;
+	background:navy;
+	text-align:center;
+	height:300px;
+	line-height:300px;
+}
+
+#footerBox {
+	margin-top:10px;
+	background:black;
+	text-align:center;
+	height:200px;
+	line-height:200px;
+	color:yellow;
+}
