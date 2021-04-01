@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>var와 let 차이점</title>
+		<script type="text/javascript">
+			/* sum = 0;
+			for(var i=0; i<10, i++) { // 전역 변수 (함수 내에서 선언된 것이 아니므로)
+				sum += i;
+			}
+			
+			document.write(i);*/ // 함수 내에서 var를 붙여서 선언한 경우만 지역 변수
+			
+			
+			
+			sum = 0;
+			for(let i=0; i<10, i++) { // let : 블록 안에서만 사용 가능한 지역 변수
+				sum += i;
+			}
+			
+			document.write(i); // 블록 안에서 let으로 선언된 지역 변수 사용 불가
+			
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>

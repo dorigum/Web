@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>전역 변수</title>
+		<script type="text/javascript">
+			// 여기에 선언된 변수는 var가 붙든 안 붙든 전역변수
+			// 모든 곳에서 사용 가능
+			
+			var x = 5, y = 10;
+			total = 0;
+			
+			function f1(){
+				x = x + y;
+				document.write(x + "<br>");
+			}
+			
+			function f2(){
+				total = x + y;
+				document.write(total);
+			}
+			
+			f1();
+			f2();
+			
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>

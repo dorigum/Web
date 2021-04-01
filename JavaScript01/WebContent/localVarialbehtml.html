@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>지역 변수</title>
+		<script type="text/javascript">
+			function f1(){
+				var localVar1 = 100; // 함수 내에서 var 붙여서 선언된 변수는 지역 변수
+			}
+			
+			f1();
+			//document.write(localVar1); // 함수 내에서 만들어진 지역 변수 사용 불가 : 오류
+			
+			
+			function f2(){
+				localVar2 = 200; // 함수 내에서 var 없이 사용된 변수는 전역 변수 
+			}
+			
+			f2();
+			document.write(localVar2); // 함수 내에서 var 없이 사용된 전역 변수 사용 가능
+			
+			
+			function f3(){
+				let localVar3 = 300; // 함수 내에서 let으로 선언된 변수는 지역 변수
+			}
+			
+			f3();
+			document.write(localVar3); // 함수 내에서 let으로 선언된 지역 변수 사용 불가
+			
+			</script>
+	</head>
+	<body>
+
+	</body>
+</html>
