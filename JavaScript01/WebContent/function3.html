@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>함수</title>
+		<script type="text/javascript">
+			function show() {
+				alert("show() 함수입니다.");
+				changeColor(); // 함수 내에서 다른 함수 호출
+			}
+			
+			//show();
+
+			function changeColor() {
+				document.bgColor = "red"; // IE에서는 오류 없이 수행
+				document.body.style.background = "red";
+			}
+			
+			// HTML 문서가 로드되면서 DOM 객체 트리가 만들어지면서 body 인식
+			show();
+			</script>
+	</head>
+	<body> <!--  onLoad="show()" -->
+
+	</body>
+</html>

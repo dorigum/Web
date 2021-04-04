@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>콜백함수 예제</title>
+		<script type="text/javascript">
+		function callTenTimes(callback) {
+			for(var i=0; i<10; i++) {
+				callback(); // 매개변수로 전달된 함수를 호출
+			}
+		}
+		var callback = function() {
+			alert("함수 호출");
+		}
+		
+		callTenTimes(callback);
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>

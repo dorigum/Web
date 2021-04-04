@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>location 객체</title>
+		<script type="text/javascript">
+			function hrefMove() {
+				location.href = "http://www.google.com";// 크롬
+				//location.href = "http://www.google.com";
+			}
+			
+			function assignMove() {
+				window.location.assign("http://www.daum.net");
+			}
+			
+			function replaceMove() {
+				window.location.replace("http://www.youtube.com");
+			}
+		</script>
+	</head>
+	<body>
+		<button onClick="hrefMove()">구글</button>
+		<button onClick="assignMove()">다음</button>
+		<button onClick="replaceMove()">유튜브</button>
+	</body>
+</html>

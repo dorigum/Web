@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Date 객체</title>
+		<script type="text/javascript">
+			var today = new Date();
+			
+			// getYear() : 119년 반환
+			var year = today.getFullYear();
+			var month = today.getMonth() + 1;
+			var date = today.getDate();
+			var day;  // 요일 저장할 변수
+			
+			// 요일 설정
+			switch(today.getDay()) {
+			case 0 : day = "일"; break;
+			case 1 : day = "월"; break;
+			case 2 : day = "화"; break;
+			case 3 : day = "수"; break;
+			case 4 : day = "목"; break;
+			case 5 : day = "금"; break;
+			default : day = "토";
+			}
+			
+			document.write("오늘은 " + year + "년 " + month + "월 " + date + "일 " + day + "요일 입니다." + "<br>");
+		
+			// getHours()
+			// getMinutes()
+			// getSeconds()
+			// 지금은 ~시 ~분 ~초입니다.
+			var hour = today.getHours();
+			var minute = today.getMinutes();
+			var second = today.getSeconds();
+			var amPm; // 오전 / 오후 저장할 변수
+			if(hour < 12) {
+				amPm = "오전";
+			} else {
+				amPm = "오후";
+				if(hour != 12) {
+					hour = hour - 12;
+		}
+			
+			document.write("지금은 " + + amPm + hour + "시 " + minute + "분 " + second + "초 입니다.");
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>

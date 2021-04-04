@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>window 객체의 open() 메소드 사용해서 새창으로 열기</title>
+		<script type="text/javascript">
+			function showBigImage() {
+				window.open("bigImage.html", "bigWin", 
+						"width=700, height=800, top=50");
+			}
+		</script>
+	</head>
+	<body>
+		그림에 마우스를 가져가면 <br>
+		그림을 크게 볼 수 있습니다. <br><br>
+		<img src = "image/고흐.jpg" width="118" height="146" onMouseOver="showBigImage()">
+	</body>
+</html>

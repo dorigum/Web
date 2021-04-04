@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Window 객체의 setTimeout</title>
+		<script type="text/javascript">
+		function openWindow() {
+			window.open("msgWindow.html", "setTimeout", 
+					"width=300, height=200");
+		}
+		
+		// msgWindow.html 열린 창이 닫히고
+		// 부모창인 window-setTime.html 창에 포커스를 받았을 때 메세지 출력하는 함수
+		function showMsg() {
+			document.write("로드하자 열린 공지사항 창이 <br> 3초 후에 자동으로 닫혔습니다.")
+		}
+		</script>
+	</head>
+	<body onLoad="openWindow()" onFocus="showMsg()">
+
+	</body>
+</html>

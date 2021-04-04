@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>DOM : 태그 생성</title>
+		<script type="text/javascript">
+			// 윈도우가 로드 되었을 때 처리
+			window.onload = function() {
+				// 1. 요소 새로 생성
+				var h3 = document.createElement('h3'); // <h3> 태그 생성
+				// 출력할 텍스트 생성
+				var text = document.createTextNode("출력할 텍스트 : 홍길동");
+				
+				// 2. 노드 연결
+				// 텍스트 노드를 <h3> 태그에 연결
+				h3.appendChild(text);
+				
+				// 3. body에 연결 후 출력
+				document.body.appendChild(h3);
+			}
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>

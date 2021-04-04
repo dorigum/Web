@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>중첩 for문</title>
+		<script type="text/javascript">
+			// 4행 7열로 사과 출력 : apple.png
+			for(var i=1; i<=4; i++){	// 4행
+				for(var j=1; j<=7; j++){	// 7열
+					document.write("<img src = 'image/apple.png'>");
+				}
+				document.write("<br>");
+			}
+			
+			document.write("<hr>");
+			
+			// 4행 7열로 사과 bomb 사과 bomb ... 출력 : bomb.png
+			for(var i=1; i<=4; i++){
+				for(var j=1; j<=7; j++){
+					// if문 사용해서 홀수면 사과, 짝수면 bomb 출력
+					// 홀수 : 2로 나눈 나머지가 1인 수
+					// 나머지 연산자 : %
+					// j를 2로 나눈 나머지가 1이면 apple.png 출력 / 아니면 bomb.png 출력
+					
+					if(j % 2 == 0)
+					document.write("<img src = 'image/bomb.png'>");
+					else
+					document.write("<img src = 'image/apple.png'>");
+				}
+				document.write("<br>");
+			}
+			
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>

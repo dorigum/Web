@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>디폴트 매개변수를 갖는 함수2</title>
+		<script type="text/javascript">
+			// 디폴트 매개변수가 다른 매개변수와 같이 사용될 경우, 맨 뒤에 배치
+			//function showInfo(name, year=4, score) {
+			function showInfo(name, score, year=4) {	
+				document.write("name : " + name + "<br>");
+				document.write("year : " + year + "<br>");
+				document.write("score : " + score + "<br>");
+			}
+			
+			console.log(showInfo());
+			document.write("<br>");
+			console.log(showInfo("홍길동"));
+			
+			document.write("<br>");
+			console.log(showInfo("홍길동", 80)); // year를 80으로 덮어씀
+		
+			document.write("<br>");
+			console.log(showInfo("홍길동", 80, 1));
+			</script>
+	</head>
+	<body>
+
+	</body>
+</html>

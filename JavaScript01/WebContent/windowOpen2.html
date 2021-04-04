@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			// 이미 만들어진 문서를 새로운 창으로 열기
+			function openWindow() {
+				window.open("windowOpen.html", "bigImg", 
+						"width=200, height=200, status=yes, scrollbars=yes, resizable=yes");
+			}
+			// 새로운 창을 만들어서 열기
+			function openNewWindow() {
+				createWin = window.open("", "createWin", "width=400, height=150");
+				createWin.document.write("createWin 이름으로 새로 만든 창입니다.");
+				createWin.document.write("<p><button onClick = 'window.close()'> 닫기 </button>");
+			}
+		</script>
+	</head>
+	<body>
+		<button onClick="openWindow()"> Big Image 열기 </button>
+		<button onClick="openNewWindow()"> Big Image 열기 </button>
+	</body>
+</html>

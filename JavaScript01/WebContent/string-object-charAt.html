@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>String 객체의 charAt() 메소드</title>
+		<script type="text/javascript">
+			var input = prompt("숫자 입력 : ");
+			// 입력된 모든 문자를 하나씩 검사해서
+			// 숫자가 아닌 경우(하나라도 문자가 포함되어 있으면) 알림창 출력
+			// for문 중단
+			for(var i=0; i<input.length; i++) {
+				if(!('0' <= input.charAt(i) && input.charAt(i) <= '9')) {
+					alert("숫자 형식이 아닙니다.");
+					break;
+				}
+			}
+			
+			document.write(input);
+			
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>

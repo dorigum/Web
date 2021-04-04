@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Array 객체</title>
+		<script type="text/javascript">
+			var fruits = new Array("사과", "복숭아", "포도");
+			
+			for(var i=0; i<fruits.length; i++) {
+				document.write(fruits[i] + " ");
+			}
+			
+			document.write("<br>");
+			
+			
+			// push() : 마지막에 요소 추가
+			fruits.push("딸기");
+			fruits.push("수박");
+			
+			for(var i=0; i<fruits.length; i++) {
+				document.write(fruits[i] + " ");
+			}
+			
+			document.write("<br>");
+			
+			
+			// pop() : 마지막 요소 제거
+			fruits.pop();
+			
+			for(var i=0; i<fruits.length; i++) {
+				document.write(fruits[i] + " ");
+			}
+			
+			document.write("<br>");
+			
+			
+			// sort() : 오름차순 정렬
+			fruits.sort();
+			
+			for(var i=0; i<fruits.length; i++) {
+				document.write(fruits[i] + " ");
+			}
+			
+			document.write("<br>");
+			
+			
+			
+			// slice() : 배열에서 일부 요소 추출해서 배열 생성
+			var newFruits = fruits.slice(1, 3); // start ~ end : end-1 까지 추출
+			
+			for(var i=0; i<newFruits.length; i++) {
+			document.write(newFruits[i] + " ");
+			}
+			
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>

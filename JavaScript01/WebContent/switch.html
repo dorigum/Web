@@ -7,7 +7,14 @@
 			// prompt() 함수로 입력 받아서 이미지 출력
 			// prompt() 함수로 입력 받은 값은 문자열
 			// 1 : 리자드		2: 리자몽		3 : 메가 리자몽
-			var answer = prompt("");
+			var input = prompt("숫자 입력(1, 2, 3) : ");
+			
+			switch(input) {
+				case"1":document.write("<img src='image/lizard.png'>"); break;
+				case"2":document.write("<img src='image/lizardon.png'>"); break;
+				case"3":document.write("<img src='image/megelizardon.png'>"); break;
+				default:alert("잘못 입력하였습니다.") // 1, 2, 3 이외의 값 입력 시
+			}
 		</script>
 	</head>
 	<body>

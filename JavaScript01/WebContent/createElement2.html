@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>DOM : createElement()</title>
+		<script type="text/javascript">
+			window.onload = function() {
+				
+				var img = document.createElement('img'); // <img> 태그 생성
+			
+			// 속성 설정
+			img.src = "image/bird.jpg";
+			img.width = 250;
+			img.height = 180;
+			img.title = "예쁜 새";
+			
+			document.body.appendChild(img);
+			}
+			
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>

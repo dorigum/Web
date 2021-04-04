@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+		// 익명 함수인 경우 호이스팅 안됨
+		// 호이스팅 : 함수 선언보다 함수 호출이 위에 위치해도 실행되는 기능
+		//start(); // 호출은 함수 호출 형식
+		// 함수 선언 이전에 호출했기 때문에 오류
+		// not a function
+		// 익명 함수 var 변수명 = function() {}
+		var start = function() {
+			alert("알림창입니다.");
+		}
+		
+		start(); // 호출은 함수 호출 형식
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>

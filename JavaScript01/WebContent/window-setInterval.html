@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>window 객체의 setInterval() 메소드</title>
+		<script type="text/javascript">
+			function showTime() {
+				var today = new Date();
+				
+				var hour = today.getHours();
+				var minute = today.getMinutes();
+				var second = today.getSeconds();
+				var amPm; // 오전 / 오후 저장할 변수
+				if(hour < 12) {
+					amPm = "오전";
+				} else {
+					amPm = "오후";
+					if(hour != 12)
+						hour = hour - 12;
+			}
+				
+				var time = amPm + hour + "시 " + minute + "분 " + second + "초";
+				timeShow.innerHTML = time;
+			}
+				
+		</script>
+	</head>
+	<body>
+		<button onClick="timerID = setInterval('showTime()', 1000)">시간 출력</button>
+		<button onClick="clearInterval(timerID)">시간 정지</button>
+		<h1 id = 'timeShow'>시간 출력</h1>
+	</body>
+</html>

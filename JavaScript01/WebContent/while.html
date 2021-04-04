@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>while문</title>
+		<script type="text/javascript">
+			// while문을 사용해서 입력한 숫자만큼 이미지 출력
+			// 이미지 출력 순서 : cherry bomb apple
+			// cherry.png, bomb.png, apple.png
+		var num = parseInt(prompt("숫자 입력"));
+		document.write(num + "개의 이미지 출력");
+		
+		// 초기값
+		var i = 1;
+		
+		// while() 문
+		while(i <= num) {	// 조건식
+			if(i % 3 == 1)
+				document.write("<img src = 'image/cherry.png'>");
+			
+			else if (i % 3 == 2)
+			document.write("<img src = 'image/bomb.png'>");
+			
+			else
+				document.write("<img src = 'image/apple.png'>");
+				
+			i++; // 증가값
+		}
+		
+		</script>
+	</head>
+	<body>
+	
+	</body>
+</html>
