@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script src="jquery-3.6.0.min.js"></script>
+		<script type="text/javascript">
+		$(document).ready(function() {
+			// btn 버튼 클릭했을 때
+			$('#btn').on('click', function(){
+				alert("클릭했습니다.");
+			});
+			
+			// 2개의 이벤트 처리
+			/* $('#btn')
+			.on('mouseover', function(){
+				$(this).css('background-color', 'yellow');		
+			})
+			.on('mouseout', function(){
+				$(this).css('background-color', 'lime');
+			}); */
+			
+			
+			
+			$('#btn').on({
+				mouseover:function(){
+					$(this).css('background-color', 'yellow');		
+				},
+				mouseout:function(){
+					$(this).css('background-color', 'lime');	
+				}
+			});
+			
+		});
+		</script>
+	</head>
+	<body>
+		<input type="button" id="btn" value="클릭하세요">
+	</body>
+</html>

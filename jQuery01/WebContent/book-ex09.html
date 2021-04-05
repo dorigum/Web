@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>p407 연습문제 09</title>
+		<style>
+			div {
+				width : 100px;
+				height : 50px;
+				line-height: 50px;
+				text-align : center;
+				color : white;
+				background-color : teal;
+				border-radius : 20px;
+			}
+		</style>
+		<script src="jquery-3.6.0.min.js"></script>
+		<script type="text/javascript">
+		$(document).ready(function() {
+			$('div').hover(function (){
+				$(this).css('opacity', 0.5)
+			}, function () {
+				$(this).css('opacity', 1)
+			}
+			});
+		});
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

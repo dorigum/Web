@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>태그 선택자</title>
+		<script src="jquery-3.6.0.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+			// 태그 선택자로 찾아옴
+			$('h1').css('color', 'red');
+			$('h1').css('background', 'black');
+			
+			// 메소드 체인 방식
+			$('h1').css('width', '50%').css('height', '40px');
+			
+			// 아이디 선택자
+			$('#h1').css('color', 'yellow');
+			$('#h2').css('color', 'green');
+			
+			});
+		</script>
+	</head>
+	<body>
+		<h1>Header</h1>
+		<h1>Header</h1>
+		<h1>Header</h1>
+		
+		<h2 id="h1">Header</h2>
+		<h2 id="h2">Header</h2>
+	</body>
+</html>

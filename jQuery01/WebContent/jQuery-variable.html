@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery 변수</title>
+		<script src="jquery-3.6.0.min.js"></script>
+		<script type="text/javascript">
+		$(document).ready(function() {
+			// jQuery 변수에 저장 : $변수명
+			/* var $divs = $('div'); // 태그 선택자 : 모든 <div> 태그 선택
+			alert($divs.length);
+			$divs.css('color', 'red'); */
+		
+		
+			// 변수명에서 $ 제거 사용
+			// 선택을 jQuery 선택자($('div'))로 했기 때문에
+			// 속성과 jQuery 메소드 사용 가능
+			/* var divs = $('div'); // 태그 선택자 : 모든 <div> 태그 선택
+			alert(divs.length);
+			divs.css('color', 'red'); */
+			
+			
+			// 자바스크립트의 DOM 선택 방식으로 선택한 경우
+			// jQuery 메소드를 사용할 수 없음
+			/* var divs = document.getElementById("box1");
+			box1.css('color', 'red'); */
+			
+			
+			// 자바스크립트의 DOM 선택 방식으로 선택한 경우
+			// 속성은 사용 가능
+			// jQuery 메소드를 사용할 수 없음
+			var divs2 = document.getElementsByTagName("div");
+			alert(divs2.length);
+			divs2.css('color', 'red');
+		});
+		
+		</script>
+	</head>
+	<body>
+		<div id="box1">
+			<div class="group1">A</div>
+			<div class="group2">A</div>
+			<div class="group1">B</div>
+			<div class="group2">B</div>
+			<div class="group1">C</div>
+			<div class="group2">C</div>
+		</div>
+	</body>
+</html>

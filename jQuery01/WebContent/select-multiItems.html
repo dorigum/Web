@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style>
+			#menuBox div {
+				float:left;
+				background:green;
+				width:100px;
+				height:50px;
+			}
+		</style>
+		<script src="jquery-3.6.0.min.js"></script>
+		<script type="text/javascript">
+		$(document).ready(function(){
+			// menuItem 클래스 선택자 이용해서
+			// 해당 클래스의 모든 div 알아오기 (총 4개)
+			var $menuItem = $('.menuItem'); // 클래스 선택자
+			//alert($menuItem.length);
+			
+			// index 값 출력할 <span> 태그 선택해서 변수에 저장
+			var $indexSpan = $('#indexSpan'); // ID 선택자
+			
+			// 4개인 $menuItem 각각에 대해 함수 수행 : each() 메소드 사용
+			// each() 메소드에는 기본적으로 index 변수가 주어지는데 각 div 인덱스 번호 (0부터 시작)에 해당
+			// 변수명 index로 하지 않고 임의로 사용 가능 (예 : idx, i, ....)
+			
+			$menuItem.each(function(index){
+				
+				$(this).hover( // 현재 div에 마우스 올렸을 때
+					function(){
+						$(this).css('background', 'yellow'); // 노란색으로 설정
+						$indexSpan.text(index);	// 인덱스 값 출력
+				},
+				
+					function(){ // 마우스 뗐을 때	
+						$(this).css('background', 'green'); // 초록색으로 설정
+						$indexSpan.text(""); // 인덱스 값 제거
+				}
+						
+			); // hover() 종료
+				
+		}); // each() 종료	
+			
+	}); // ready() 종료
+	
+		</script>
+	</head>
+	<body>
+		<div id="wrap">
+			<h2>인덱스 : <span id="indexSpan">index</span></h2>
+			
+			<div id="menuBox">
+				<div class="menuItem"></div>
+				<div class="menuItem"></div>
+				<div class="menuItem"></div>
+				<div class="menuItem"></div>
+			</div>	
+		</div>
+	</body>
+</html>
