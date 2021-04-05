@@ -661,14 +661,14 @@ function 함수명() {
 
 * 생성
 
-  ```
+  ```javascript
   var today = new Date(); // Date 객체 생성
   var arr = new Array(); // Array 객체 생성
   ```
 
 * 사용 : 각 객체의 메소드 사용
 
-  ```
+  ```javascript
   today.getMonth(); // 객체.메소드()
   arr.sort();
   ```
@@ -679,16 +679,16 @@ function 함수명() {
 
 * ```Array``` 객체: 메소드 사용
 
-* ```Math``` 객체 : random() 사용해서 이미지 랜덤으로 출력
+* ```Math``` 객체 : ```random()``` 사용해서 이미지 랜덤으로 출력
 
 * ```String``` 객체 : 문자열 객체
 
-  ```
+  ```javascript
   var name = new String("홍길동");
   name.fontsize(4);
   ```
 
-  ```
+  ```javascript
   var name = "홍길동"; // 상수 형태의 문자열
   name.fontsize(5) 	// 객체로 자동 변환 (일시적)
   ```
@@ -715,10 +715,10 @@ function 함수명() {
 * 자바스크립트에서는 웹 페이지를 구성하는 HTML 태그의 모든 요소화
 * 웹 브라우저를 구성하는 요소들을 객체로 정의해서 제공
 * 객체들은 계층 구조로 분류
-* 최상위 window
-* 그 아래에 frame document location history
-* 그 아래에 layer image form, ...
-* form 아래에 text, radio, password, button, ...
+* 최상위 ```window```
+* 그 아래에 ```frame document location history```
+* 그 아래에 ```layer image form```, ...
+* ```form``` 아래에 ```text```, ```radio```, ```password```, ```button```, ...
 * ```window 객체``` : 윈도우 창
 * ```document``` 객체 : 문서
 * ```history``` 객체 : 웹 브라우저 기록 정보
@@ -730,8 +730,8 @@ function 함수명() {
 
   * 창에 대한 전반적인 상황을 제어하는 최상위 객체
   * ```window.document.pic.src = "image.jpg"```
-  * window 생략
-  * window 객체의 주요 메소드 : ```open()``` / ```close()``` / ```setTimeout()``` / ```clearTimeout()``` / ```setInterval()``` / ```clearInterval()```
+  * ```window``` 생략
+  * ```window``` 객체의 주요 메소드 : ```open()``` / ```close()``` / ```setTimeout()``` / ```clearTimeout()``` / ```setInterval()``` / ```clearInterval()```
 
   
 
@@ -751,13 +751,13 @@ function 함수명() {
 
 * 일정 시간이 지난 후에 호출함수를 1번만 실행
 
-  ```
+  ```javascript
   setTimeout('winclose()', 1000) // 1초 후에 winclose() 함수 호출
   ```
 
 * ```clearTimeout(타이머ID)``` : 시간 설정한 것을 해제
 
-  ```
+  ```javascript
   타이머ID = setTimeout('winclose()', 1000);
   ```
 
@@ -769,7 +769,7 @@ function 함수명() {
 
 * ```clearInterval(타이머ID)```
 
-  ```
+  ```javascript
   타이머ID = setInterval('winclose()', 1000);
   ```
 
@@ -789,7 +789,7 @@ function 함수명() {
 
 -----------------
 
-3. 문서 객체 모델 (DOM)
+3. **문서 객체 모델 (DOM)**
 
 > 객체 지향 모델로서 구조화된 문서를 표현하는 방식
 
@@ -813,4 +813,314 @@ function 함수명() {
 * ```appendChild()``` : 객체에 노드 연결
 * ```getElementById()``` : 태그의 id 속성으로 문서 객체를 반환 (id로 태그 찾기)
 * ```getElementByName()```
-* ```getElementByTagName() ```
+* ```getElementsByTagName() ```
+* ```querySelector()```
+* ```querySelectorAll()```
+
+
+
+### DOM 요소 조작 시 자바스크립트 위치
+
+* 문서 내에서 요소(객체)들이 생성되기 전에 자바스크립트를 선언하게 되면 요소를 선택할 수 없음
+* 올바른 위치
+  * DOM 요소 다음에 자바스크립트 선언
+  * 윈도우 로드 완료 후 자바스크립트 실행
+
+
+
+* 잘못된 위치
+
+```html
+<html>
+<head>
+    자바스크립트 선언
+</head>
+    <body>
+   	DOM (HTML 태그)
+    </body>
+</html>
+```
+
+
+
+* 올바른 위치
+
+  1. 자바스크립트가 DOM 요소 다음에 위치
+
+     ```javascript
+     <html>
+     <head>
+         
+     </head>
+         <body>
+        	DOM (HTML 태그)
+         자바스크립트 선언
+         </body>
+     </html>
+     ```
+
+  2. 윈도우 로드 완료 후 자바스크립트 실행
+
+     ```javascript
+     <html>
+     <head>
+         윈도우 로드 완료 후
+     	자바스크립트 선언
+     </head>
+         <body>
+        	DOM (HTML 태그)
+         </body>
+     </html>
+     ```
+
+     
+
+#### ```getElementsTagName```
+
+> 문서 내의 모든 요소를 배열 컬렉션으로 전달 받아서 참조할 수 있게 해주는 메소드
+>
+> 참조 값들은 배열로 만들어져서 전달
+
+```javascript
+var tdArr = document.getElementsByTagName('td');
+```
+
+* 문서 내의 ```<t>``` 태그 수가 배열 크기
+* for문 사용해서 요소 참조
+
+
+
+---------
+
+4. **사용자 정의 객체**
+
+> 사용자가 직접 필요한 객체 생성
+
+* 사용자 정의 객체 생성 방법
+
+  * ```new Object()``` 이용
+  * 리터럴 이용
+  * 생성자 함수 (```function```) 이용
+  * ```class``` 정의하고 객체 생성 (ES6에 추가)
+
+  
+
+1. **new Object() 이용**
+
+```javascript
+var obj = new Object(); // 객체 생성
+// 멤버 변수 추가
+객체.프로퍼티 = 값
+
+// 멤버 메소드 추가
+객체.메소드이름 = function() {
+}
+
+// 객체의 멤버 메소드 사용(호출)
+객체.메소드()
+```
+
+
+
+2. **리터럴 이용 사용자 정의 객체 생성**
+
+> 코드가 더 간결하고 가독성 높음
+
+```javascript
+var 객체 = {
+	// 멤버 추가
+	프로퍼티:값,
+	프로퍼티:값,
+	
+	// 멤버 메소드
+	메소드이름 : function() {
+	};
+}
+객체.멤버메소드(); // 객체의 멤버 메소드 이용(호출)
+```
+
+
+
+3. 생성자 함수 (```function```) 이용
+
+* 함수 선언과 같은 방식으로 ```function``` 키워드 사용하여 선언
+* ```new``` 연산자 사용해서 객체 생성
+* ```this.프로퍼티```
+* ```function``` 키워드 사용했으므로 함수 호이스팅 가능
+* 선언 전에 호출해서 사용 가능
+
+```javascript
+function 생성자함수명() {
+	this.멤버변수;
+	
+	// 메소드
+	this.메소드 = function() {
+	}
+}
+
+// 객체 생성
+var 객체 = new 생성자함수명();
+```
+
+
+
+4. ```class``` 정의하고 객체 생성 (ES6에 추가)
+
+* ```class``` 키워드 사용
+* ```생성자``` / ```Getters``` / ```Setters``` 가능
+* 호이스팅 불가 : 클래스 정의 이후에서만 객체 사용 가능 (사용 가능)
+
+```javascript
+class 클래스명 {
+	// 생성자
+	constructor() { }
+	
+	// Getter
+	get 메소드명() { return this.변수; }
+	// Setter
+	set 메소드명(값) { this.변수 = 값;}
+}
+
+// 객체 생성
+var 객체 = new 클래스명(); // 생성자 호출
+```
+
+* **주의!!** : 메소드 호출시 메소드명 다음에 소괄호 안 붙임
+* ```rect.area```
+
+
+
+-----------------------
+
+### 자바스크립트 객체 JSON 변환
+
+#### JSON (JavaScript Object Notation)
+
+* 자바스크립트의 객체 표기법
+* ```key```와 ```value``` 값이 쌍으로 구성된 형태의 객체 표기법
+* 클라이언트와 서버 사이에서 데이터 교환 목적으로 사용
+* 웹 서버에서 수신하는 데이터는 문자열인데
+* 문자열 데이터를 JSON 파싱 함수를 통해서 자바스크립트 객체로 변환 가능
+* 최근의 웹 브라우저들은 전부 내장 객체로 JSON 변환 기능 지원
+
+
+
+* JSON 데이터 형식
+
+```javascript
+{key : value}
+{"name" : "홍길동"}
+```
+
+
+
+* ```JSON.stringify()``` : 자바스크립트 객체를 JSON 데이터로 변환
+* ```JSON.parese()``` : JSON 데이터를 자바스크립트 객체로 변환
+
+
+
+----------------
+
+#### 자바스크립트의 이벤트 처리 방식 3가지
+
+1. 인라인 이벤트 핸들러 사용
+2. 고전 방식의 이벤트
+3. DOM 이벤트 리스너 등록 : ```addEventListener()```
+
+
+
+1. **인라인 이벤트 핸들러 사용**
+
+* ```HTML``` 태그의 이벤트 핸들러 사용
+
+```html
+<img src = "a.png" onMouseOver = "show()">
+```
+
+* 태그 안에서 ```이벤트핸들러 = "함수호출"```
+
+
+
+2. **고전 방식의 이벤트**
+
+```javascript
+객체.이벤트명 = function() {
+}
+btn.onclick = function() {
+}
+```
+
+
+
+3. **DOM 이벤트 리스너 등록**
+
+* ```addEventListener (이벤트종류, 함수명)```
+* ```removeEventListener()```
+
+
+
+##### 인라인 방식과 고전 방식의 경우
+
+* 같은 객체에 대해 동일한 이벤트를 여러 번 사용 불가
+* 마지막 이벤트 핸들러만 적용
+
+
+
+-----------------
+
+### 폼 유효성 확인
+
+* ```form``` 객체 : ```document``` 객체의 하위 객체
+* ```form``` 태그 내에 들어 있는 여러 입력 양식 객체 제어
+* ```form``` 객체 하위 객체들
+  * ```text```, ```radio```, ```select```, ```password```, ```checkbox```, ...
+
+
+
+#### 폼 객체 선택하는 방법
+
+1. **태그의 name 속성을 객체로 사용하는 방법**
+
+   ```javascript
+   <form name = "newForm">
+   <input type = "text" name = "id">
+   newForm.id.focus();
+   ```
+
+   
+
+2. **DOM 방식을 사용하는 방법**
+
+   ```javascript
+   <input type = "text" name = "id" id = "id">
+   var id = document.getElementById('id');
+   id.focus();
+   ```
+
+
+
+3. **jQuery 사용 : 훨씬 간단**
+
+* ```radio``` : 그룹에서 여러 개 중 1개만 선택
+
+  * 그룹으로 묶어서 하나의 이름으로 사용
+  * ```radio``` 객체는 배열 형태로 사용
+  * ```checked``` 속성이 ```true```이면 체크된 상태 (각 라디오 버튼을 확인)
+  * ```false```이면 체크되지 않은 상태
+  * 배열 개수만큼 for문 사용
+
+  ```javascript
+  if(폼.emailRcv[i].checked == true)
+      <input type = "radio" name = "emailRcv" value = "yes">예
+	<input type = "radio" name = "emailRcv" value = "No">아니오
+  ```
+  
+
+* ```checkbox``` : 여러 개 선택 가능
+
+  ```javascript
+  <input type="checkbox">
+  ```
+
+  * ```checked``` 속성이 ```true```면 체크된 상태
+  * ```false```면 체크되지 않은 상태
