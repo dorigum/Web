@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			window.onload = function(){
+				var imageA = document.getElementById('imageA');
+				var hint = document.getElementById('hint');
+				var changeButton = document.getElementById('changeButton');
+			}
+			
+			// 요소의 속성을 변환하는 함수
+			function change(){
+				imageA.src="image/B.png";
+				hint.innerHTML = "새로운 이미지로 변경되었습니다."
+				hint.style.background = "red";
+				changeButton.innerHTML = "완료";	
+			}
+		</script>
+	</head>
+	<body>
+		<div>
+		<img id = "imageA" src = "image/A.png">
+		<div id = "hint">[변경] 버튼을 누르면 이미지가 변경됩니다.</div><p>
+		<button id = 'changeButton' onClick="change()">변경</button>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>회원 가입 폼</title>
+        <style>
+        	table { margin:0 auto; width:700px; }
+        </style>
+        <script src="checkForm.js"></script>   
+    </head>
+    
+    <body>
+    	<div id="wrap">
+              <div id="joinBox">                     
+                  <h2  align="center">회원가입</h2>
+                  <hr>
+                   <form  name="newMemberForm" id="newMemberForm" method="post" action="newMemberOk.jsp">
+                       <table>	                           
+                           <tr>
+                               <td>아이디</td>
+                               <td><input type="text" name="id" id="id" autofocus> 
+                               <input type="button" value="ID중복체크"> (영문자+특수문자: 6~10자)</td>
+                           </tr>
+                           <tr>
+                               <td>비밀번호</td>
+                               <td><input type="password" name="password" id="password" size="21"> 
+                               (영문자+숫자+특수문자: 10~20자)</td>
+                           </tr>
+                           <tr>
+                               <td>비밀번호 확인</td>
+                               <td><input type="password" name="passwordCheck" id="passwordCheck" size="21"></td>
+                           </tr>	
+                           
+                           <tr>
+                               <td>이메일 수신 여부</td>
+                               <td>
+                                   <input type="radio" name="emailRcv" value="yes">예
+                                   <input type="radio" name="emailRcv" value="no">아니오
+                               </td>
+                           </tr>      
+
+                           <tr>
+		                        <td>동의</td>
+		                        <td>
+		                            <input type="checkbox" id="agreement1" value="약관동의">모든 약관에 동의
+		                        	<input type="checkbox" id="agreement2" value="개인정보이용동의">개인 정보 이용 동의 
+		                        </td>
+		                  </tr>
+                           <tr>
+                               <td colspan="2" align="center">
+                                   <br><input type="submit" value="회원가입">&nbsp;&nbsp;
+                                   <input type="reset" value="취    소">
+                               </td>
+                           </tr>
+                       </table>	
+                   </form>
+             </div>    
+        </div>
+	</body>
+</html>
+
+

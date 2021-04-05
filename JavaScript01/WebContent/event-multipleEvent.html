@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>동일 이벤트 여러 번 처리 - 고전 방식</title>
+		<script type="text/javascript">
+			// 이벤트 처리 고전 방식의 경우
+			// 동일 이벤트를 여러 번 사용 불가
+			// 마지막 이벤트만  적용
+			function show1() {
+				alert("show1");
+			}
+			
+			function show2() {
+				alert("show2");
+			}
+			
+			window.onload = show1;
+			window.onload = show2;
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>

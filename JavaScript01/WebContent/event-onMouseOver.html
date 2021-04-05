@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>고전 방식의 이벤트 처리</title>
+		<script type="text/javascript">
+			window.onload = function() {
+				// 이미지에 마우스 올렸을 때 이벤트 처리
+				var birdImg = document.getElementById('birdImg');
+				
+				// 이미지에서 마우스 뗐을 때 이벤트 처리
+				birdImg.onmouseover = function() {
+					birdImg.style.opacity = 0.5; // 불투명도
+				}
+				
+				birdImg.onmouseout = function(){
+					birdImg.style.opacity = 1; // 불투명도 (1 : 완전 불투명)
+				}
+			}
+			
+			// 문서 상에서 오른쪽 마우스 클릭했을 때 이벤트 처리
+			document.oncontextmenu = function() {
+				alert("마우스 오른쪽 버튼 사용을 금지합니다.");
+				return false; // 컨텍스트 메뉴 출력 안됨(없으면 경고창 출력하고 닫은 후 컨텍스트 메뉴 출력)
+				// 또는 event.preventDefault();
+			}
+		</script>
+	</head>
+	<body>
+		<img id = "birdImg" src = "image/bird.jpg">
+	</body>
+</html>

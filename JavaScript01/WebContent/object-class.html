@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>class 이용 사용자 정의 객체 생성</title>
+		<script type="text/javascript">
+			// 사용자 정의 클래스 정의
+			class Rectangle {
+				// 매개변수가 있는 생성자
+				constructor(width, height){
+					this.width = width;
+					this.height = height;
+				}
+				
+				// Getter : get 메소드이름() { }
+				get area() {
+					return this.width * this.height;
+				}
+				
+				// Setter : set 메소드이름(매개변수) { }
+				set newWidth(w) {
+					this.width = w;
+				}
+			}
+			
+			// 객체 생성 : 생성자 매개변수 값 전달
+			// var, let, const
+			var rect = new Rectangle(10, 20);
+			// Rectangle 클래스의 area() 메소드 호출 : 객체.메소드(메소드 다음 소괄호 없이 사용)
+			document.write(rect.area + "<br>");
+			
+			
+			// Setter 이용해서 값 설정 : 객체.메소드(메소드 다음 소괄호 없이 사용)
+			rect.newWidth = 100;
+			document.write(rect.area);
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>

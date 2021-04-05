@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>리터럴을 이용한 사용자 정의 객체 생성</title>
+		<script type="text/javascript">
+			// 리터럴을 이용해서 사용자 정의 객체 생성
+			var person2 = {
+					name:"이몽룡",
+					age:20,
+					getName:function(){
+						return this.name;
+				}	
+			};
+			
+			// 객체의 멤버 메소드 사용 : 객체.메소드()
+			document.write("person2.getName() : " + person2.getName() + "<br>");
+			// 변수(프로퍼티) 값 출력
+			document.write("person2.age : " + person2.age + "<br>");
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>

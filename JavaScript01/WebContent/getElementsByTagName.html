@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>getElementsByTagName</title>
+		<style>
+			#box {margin:0 auto; width:70%; text-align:center;}
+			td {width:50px; height:30px;}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				// tdArr : 모든 td 요소를 배열로 받아옴
+				var tdArr = document.getElementsByTagName('td');
+				
+				var setNumberBtn = document.getElementById("setNumberBtn");
+				var setColorBtn = document.getElementById("setColorBtn");
+				var clearNumberBtn = document.getElementById("clearNumberBtn");
+				var clearColorBtn = document.getElementById("clearColorBtn");
+				
+				setNumberBtn.onclick = function() {
+					for(var i=0; tdArr.length; i++){
+						tdArr[i].innerHTML = i;
+					}
+				};
+				
+				setColorBtn.onclick = function() {
+					var colors = ["red", "orange", "yellow", "green", "blue", "navy", "violet"];
+					
+					for(var i=0; tdArr.length; i++){
+						tdArr[i].style.background = colors[i];
+					}
+				};
+				
+				
+				// 셀의 번호 지우기
+				clearNumberBtn.onclick = function() {
+					for(var i=0; tdArr.length; i++){
+						tdArr[i].innerHTML = "";
+					}
+				};
+				
+				
+				// 셀의 색상 지우기
+				clearColorBtn.onclick = function() {
+					for(var i=0; tdArr.length; i++){
+						//tdArr[i].style.background = "white";
+						tdArr[i].style.background = "";
+					}
+				};
+				
+				
+				
+			};
+		</script>
+	</head>
+	<body>
+		<div id = "box">
+			<table border="1">
+				<tr>
+					<td></td><td></td><td></td><td></td>
+					<td></td><td></td><td></td>
+					
+				</tr>
+			
+			</table>
+			<p>
+			<button id = "setNumberBtn">셀에 번호 채우기</button>
+			<button id = "setColorBtn">셀에 색상 채우기</button>
+			<p>
+			<button id = "clearNumberBtn">셀의 번호 지우기</button>
+			<button id = "clearColorBtn">셀의 색상 지우기</button>
+		</div>
+	</body>
+</html>
