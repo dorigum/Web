@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>사용자 정의 객체 : new Object() 이용</title>
+		<script type="text/javascript">
+			// new Object() 이용한 객체 생성
+			var person1 = new Object(); // 객체 생성
+			
+			// 멤버 변수 추가 : 객체.프로퍼티(property)
+			person1.name = "홍길동";
+			person1.age = 20;
+			
+			// 멤버 메소드 추가
+			person1.getName = function() {
+				return this.name;
+			}
+			
+			// person1.getName() : 메소드 호출
+			document.write("person1.getName() : " + person1.getName() + "<br>");
+			// 멤버 변수의 값 출력
+			document.write("person1.age() : " + person1.age + "<br>");
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>
