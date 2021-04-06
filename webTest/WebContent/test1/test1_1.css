@@ -49,26 +49,43 @@ nav li a{color: white;}
  
 
 
+
+/* 수정한 부분 */
 #content section {
 	width:800px;
 	height:auto;
 }
 
-/* 수정한 부분 */
 #main img {
 	width:800px;
 	height:auto;
 }
 
-/* #banner ul {
+#banner ul {
 	width:300px;
-} */
+}
 
 #content li{
 	float:left;
 	text-align:center;
 	width:50%;
 }
+
+
+/* #content #main img{ width: 100%; border: 1px solid gray;}
+ 
+#content #banner li{
+    border-bottom: 1px solid gray;
+}
+#content #banner li a{
+    display: block;
+    text-align: center; */
+}
+
+
+
+
+
 
 
 /* footer 영역 */
@@ -87,6 +104,9 @@ footer{
 footer img {
 	width:800px;
 }
+
+/* footer{padding: 0px 10px;}
+footer img{width: 100%;} */
  
  
 /* 전체 페이지가 가운데로 오도록 */
