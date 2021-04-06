@@ -1,0 +1,350 @@
+@charset "UTF-8";
+
+/* common.css */
+
+* {margin:0 auto; margin:0 auto; } /* 가운데 정렬 */
+
+/* 모든 콘텐츠를 포함하는 box */
+#wrap{	
+	width:1280px;
+	background-color:#eeeeee; 	/* 배경색 */
+	text-align:center;
+	position:relative;
+}
+
+/* 모든 <img> 태그 테두리 없음 */
+img { border:0; margin:0;}
+
+#footerBox div { 
+	background-color:#777777;	
+	border:solid 1px #999999;
+	margin-top:10px;
+	padding:20px;
+	margin:0;
+}
+
+#moveToTop:hover {opacity:0.8; cursor:pointer; }
+
+
+
+
+/* index.css */
+
+/*********** Header ***********/
+#headerBox {
+	height:60px; 
+	line-height:60px;	/* 줄 간격 - 수직으로 가운데 정렬 효과 */
+	padding:0;
+}
+
+#logoBox{
+	float:left;	
+	height:60px; 
+	line-height:60px;
+}
+
+/*********** 메인 메뉴 고정 ***********/
+/* 윈도우 스크롤 시 메인 메뉴 고정 */
+/* js 파일에서 addClass()로 사용 */
+.mainMenuFixed {
+        position: fixed;
+        top: 0px;
+      }
+      
+/* 메인 메뉴 아래에 그림자 표시 */
+.mainMenuShadow {	
+	box-shadow:  0 3px 5px 0px gray;
+	/* offset-x | offset-y | blur-radius | spread-radius | color */
+}
+
+
+
+/* menu.css */
+
+/* 모든 <ul> 태그에 적용 */
+ul{
+	margin-top:0;
+	padding:0;
+	list-style:none;  /* type 없음 */
+}
+
+/********** TOP MENU **********/
+#topMenuBox {
+	float:right; /*오른쪽 정렬 */
+	font-weight:bold;
+	padding-right:10px;
+}
+
+/********** MAIN MENU **********/
+
+#mainMenuBox{
+	width:1280px;
+	height:35px; 
+	line-height:35px; 	/* 줄 간격 - 수직으로 가운데 정렬 효과 */
+	background-color:#ffffff;		/* white */
+	z-index:10; /* 스크롤 시 위에 오도록 */
+	border-top: solid #CCC 1px;
+	border-bottom: solid #CCC 1px;
+}	
+
+#mainMenuBox ul{	
+	margin:0;
+}
+
+#mainMenuBox li{
+	float:left;	/* 한 줄로 왼쪽 정렬 */
+	text-align:center;
+	width:16%;	 /* 항목 동일한 너비로 */
+	height:30px;
+	line-height:30px; 
+}
+	
+#mainMenuBox li:first-child{	 /* 첫 번째 메뉴 항목 */
+	width:19%;		/* 20%이지만 border 때문에 19%로 */
+	border:solid 3px black;
+}
+
+#mainMenuBox ul li a{
+	text-decoration:none; /* <a> 태그 밑줄 없애기 */
+	color:black; /* 글자색 */
+	font-size:14px;
+	font-weight:bold;
+}
+
+#mainMenuBox  ul li a:hover{ /* 각 메뉴 항목에 마우스 올렸을 때 */
+	color:red; /* 글자색 빨강 */	
+}	
+
+/********** SUB MENU **********/
+
+#subMenuBox{ 		
+	width:1280px;
+	height:160px;
+	background-color:white;
+	text-align:center; 
+	z-index:10; /* 슬라이드쇼 박스 위로 드롭다운 하도록*/
+	padding-bottom:0;
+	position:absolute;
+	visibility:hidden; /* 시작 시 SUB 메뉴 항목 숨김 */
+}
+
+.subMenuItem { 
+	width:15%; 	
+	background-color:white;
+	border-left:solid #CCC 1px;
+	border-right:solid #CCC 1px;
+	margin-top:10px;
+}
+
+/* 첫 번째 서브메뉴항목 (왼쪽에서 5% 위치) */
+#subMenuItem1	{ 
+	position:absolute;
+	margin-left:5%;
+}
+
+#subMenuItem2	{ 
+	position:absolute;
+	margin-left:20%;
+}
+
+#subMenuItem3	{ 
+	position:absolute;
+	margin-left:35%;
+}
+
+#subMenuItem4	{ 
+	position:absolute;
+	margin-left:50%;
+}
+	
+#subMenuItem5	{ 
+	position:absolute;
+	margin-left:65%;
+}
+
+#subMenuItem6	{ 
+	position:absolute;
+	margin-left:80%;
+}	
+	
+.subMenuItem ul{
+	background-color:white;	
+}
+
+.subMenuItem ul li{
+	height:35px;
+	line-height:35px;
+}
+
+.subMenuItem li a{
+	display:inline-block;
+	color:#333333;	
+	text-decoration:none;	
+}
+
+.subMenuItem a:hover{
+	background-color:white;
+	text-decoration:underline;
+	color:black;	
+}
+
+/********** BOTTOM MENU **********/
+
+#bottomMenuBox{
+	height:30px; 
+	line-height:30px;  	
+}
+
+#bottomMenuBox li{
+	display:inline-block;	
+	text-align:center;	
+	padding:5px;	
+}
+
+#bottomMenuBox a {		
+	color:white;
+	font-weight:bold;	 	
+	text-decoration:none;		
+}
+
+
+
+/* slideShow.css  */
+
+#slideShow {
+	/* position:relative;  */
+	background-color:#ffffff;
+	height:520px;
+	line-height:520px;
+	border-bottom: solid #CCC 1px;
+}	
+
+#slideShowBox  {
+    width:1280px; 
+	height:480px;
+	text-align:center;	
+	overflow:hidden;    /* 영역 벗어나면 숨김 */     
+}
+
+/* 슬라이드 패널 */
+#slidePanel { 	
+	position: relative;
+	width:6400px; 
+	height:480px;	
+}	
+
+/* 슬라이드 이미지 */	
+.slideImage { 
+	float:left; 
+	width:1280px; 
+	height:480px; 
+}          
+
+/* prev/next 버튼 */  
+#prevNextButtonBox { position:relative; z-index:10;}
+#prevButton { position:absolute; top:201px; left:4%; opacity:0.8; cursor: pointer;}		
+#nextButton { position:absolute; top:201px; right:4%;  opacity:0.8; cursor: pointer;}
+
+#prevButton:hover { opacity:1;}
+#nextButton:hover { opacity:1;}
+
+/* 컨트롤 버튼 */
+#controlPanel{ margin:0 auto; width:160px; }
+
+#controlPanel img{ float:left; margin:10px; }
+
+
+
+/* tabMenu.css  */
+
+/****** TAB MENU ******/
+
+#tabMenuBox {
+	width:80%;
+	height:580px; 
+	background:white;
+	padding:40px;
+	text-align:center;
+}
+
+#tabMenu ul { height:30px;  padding:0;}
+
+#tabMenu ul li { 
+	float:left; 
+	list-style:none; 
+	width:25%; 
+	padding:0;  
+	height:30px; 
+	line-height:30px;
+	overflow:hidden;
+	margin-top:0x;
+}	
+
+/* tab에 마우스 올렸을 때 커서를 포인터로 변경 */
+#tabMenu img:hover {cursor:pointer;}	
+	
+/* 탭 선택 표시 : js 파일에서 addClass()에서 사용하기 위한 클래스 선택자 */
+.selectedItem img {margin-top:-30px;}
+
+
+/****** TAB CONTENT ******/
+
+#tabContent { 	
+	width:100%; 
+	height:550px;  
+	margin-top:20px; 
+	border-top:solid 1px #cccccc;
+	border-bottom:solid 1px #cccccc;
+}
+	
+/* content의 모든 div 숨기고 */
+#tabContent  div { 	
+	display:none;	
+	 padding:0;
+	 margin-top:20px; 
+}
+	
+/* 첫 번째 div 만 보임 */
+#tabContent  div:first-child { display:block; }	
+	
+#tabContent img {width:90%;  border:solid 1px #cccccc;}
+
+
+
+
+/* product.css */
+
+#productBox {
+	width:80%;
+	height:700px; 
+	background:white;
+	padding:40px;
+	padding-top:20px;
+}
+
+#productBox .product {
+	display:inline-block;
+	width:100%; 
+	margin-top:20px;
+}
+
+#productBox .product div {
+	display:inline-block;
+	width:303px;
+	height:303px;
+	border:solid 1px #cccccc;
+	margin:10px;
+}
+
+/* 이미지가 div 안에 꼭 맞게 */
+#productBox .product div img {
+	width:100%;
+	height:100%;
+}
+
+#productBox .product div:hover {
+	opacity:0.7;
+	border:solid 1px red;
+}
+
+
