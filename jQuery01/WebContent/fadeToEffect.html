@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>fadeTo 효과</title>   
+        <style type="text/css">
+        	#wrap {margin:0 auto; width:500px; text-align:center; }
+			ul { list-style:none; }	
+			li { display:inline-block; margin-right:30px; }				
+		</style>   
+		<script src="jquery-3.6.0.min.js"></script>
+		<script type="text/javascript">
+		$(document).ready(function() {
+			$('#off').on('mouseover', function(){
+				$('img').fadeTo(1000, 0);
+			});
+		
+			$('#on').on('mouseover', function(){
+				$('img').fadeTo(1000, 1);
+			});
+			
+			$('#50').on('mouseover', function(){
+				$('img').fadeTo(1000, 0.5);
+			});
+		});
+		</script>     
+	</head>    
+	<body>
+		<div id="wrap">
+            <h1>fadeTo() 효과 </h1>
+            <ul>
+                <li><a href="#" id="off">opacity : 0</a></li>
+                <li><a href="#" id="on">opacity : 1</a></li>
+                <li><a href="#" id="50">opacity : 0.5</a></li>
+            </ul>          
+            <hr>
+            <img src="image/TakashiAkasaka.jpg"> 
+            <h3>난 어디에 놓일까?</h3>
+        </div>
+	</body>
+</html>
+

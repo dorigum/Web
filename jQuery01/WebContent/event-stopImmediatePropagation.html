@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>stopImmediatePropagation</title>
+		<script src="jquery-3.6.0.min.js"></script>
+		<script type="text/javascript">
+		$(document).ready(function() {
+			$('#btn').on('click', function(){
+				e.stopImmediatePropagation();
+				alert("클릭1");
+			});
+			
+			$('#btn').on('click', function(){
+				alert("클릭2");
+			});
+			
+			$('#btn').on('click', function(){
+				alert("클릭3");
+			});
+
+		});
+		</script>
+	</head>
+	<body>
+		<button id = "btn">클릭</button>
+	</body>
+</html>

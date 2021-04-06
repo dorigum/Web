@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>preventDefault</title>
+		<script src="jquery-3.6.0.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$('#link').on('click', function(e){
+					e.preventDefault(); // 기본 href 동작 정지
+					alert("일시적 이동 정지");
+				});
+				
+				// 문서 상에서 오른쪽 마우스 클릭 시 이벤트 처리
+				document.oncontextmenu = function(e){
+					e.preventDefault();
+					alert("오른쪽 마우스 클릭 금지");
+					//return false;
+				};
+				
+			});
+		</script>
+	</head>
+	<body>
+		<!-- <a> 태그 기본 동작 : 태그 클릭 시 href 속성에 지정된 url로 이동  -->
+		<a href="http://www.naver.com" id='link'>네이버로 이동</a>
+	</body>
+</html>

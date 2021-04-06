@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>append()/prepend()/after()/before()</title>
+        <style type="text/css">		 	
+			#box { width:500px; height: 200px; line-height:200px; 
+			                  border:1px solid #000; }
+			img {vertical-align:middle;}					
+		</style>	
+		<script src="jquery-3.6.0.min.js"></script>
+		<script type="text/javascript">
+		$(document).ready(function() {
+			var img = "<img src='image/banana.png'>";
+			
+			$('#prepend').on('click', function(){
+				$('#box').prepend(img); // img : 위에서 값 설정한 변수
+			});
+			
+			$('#append').on('click', function(){
+				$('#box').append(img); // img : 위에서 값 설정한 변수
+			});
+			
+			$('#before').on('click', function(){
+				$('#box').before(img); // img : 위에서 값 설정한 변수
+			});
+			
+			$('#after').on('click', function(){
+				$('#box').after(img); // img : 위에서 값 설정한 변수
+			});
+			
+			$('#empty').on('click', function(){
+				// box 안의 요소들 제거
+				$('#box').empty(img); // img : 위에서 값 설정한 변수
+			});
+			
+			$('#remove').on('click', function(){
+				// box 안의 요소들 제거
+				$('img').remove(); // img : 위에서 값 설정한 변수
+			});
+			
+			$('#initiate').on('click', function(){
+				// box 안의 요소들 제거
+				$('img').remove();
+				$('#box').empty().append("div 내부 <img src='image/apple.png'>"); // img : 위에서 값 설정한 변수
+			});
+			
+		});
+		</script>
+	</head>
+
+    <body>
+        <button id="prepend" >prepend</button> 
+        <button id="append" >append</button> 
+        <button id="before" >before</button> 
+        <button id="after" >after</button> 
+        <button id="empty" >empty</button> 
+        <button id="remove" >remove</button> 
+        <button id=initiate >초기화</button>
+        <p>
+        <div id="box">
+        	div 내부 <img src='image/apple.png'>
+        </div>    
+    </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>text()와 html()</title>
+		<script src="jquery-3.6.0.min.js"></script>
+		<script type="text/javascript">
+		$(document).ready(function() {
+			// text() : 태그의 문자열 반환
+			var aText = $('#a').text();
+			alert("text() : " + aText); // A
+			
+			// html() : 태그의 문자열 반환 (태그 포함)
+			var bHtml = $('#b').html();
+			alert("html() : " + bHtml); // <h3>B</h3>
+			
+			// text() : <h1> 태그 인식하지 못하고 문자열 취급 : <h1> 그대로 출력
+			$('#a').text("<h1>jQuery</h1>");
+			
+			// html() : <h1> 태그 인식하고 <h1> 태그 효과 적용 : <h1>문자열은 출력 안 됨
+			$('#b').html("<h1>jQuery</h1>");
+		});
+		
+		</script>
+	</head>
+	<body>
+		<div id = "a"><h3>A</h3></div>
+		<div id = "b"><h3>B</h3></div>
+	</body>
+</html>

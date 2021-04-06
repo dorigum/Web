@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>stopPropagation</title>
+		<style>
+			#parent {border:solid 1px blue;}
+			#child {border:solid 1px red; width:20%;}
+		</style>
+		<script src="jquery-3.6.0.min.js"></script>
+		<script type="text/javascript">
+		$(document).ready(function() {
+			$('#parent').on('click', function(){
+				alert("parent");
+			});
+			
+			$('#child').on('click', function(e){
+				// 상위 요소로 이벤트가 전파되는 것을 중지
+				e.stopPropagation();
+				alert("child");
+				
+			});
+		});
+		</script>
+	</head>
+	<body>
+		<div id = "parent">
+			<div id = "child">클릭</div>
+		</div>
+	</body>
+</html>
