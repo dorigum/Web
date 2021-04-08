@@ -459,3 +459,181 @@ doGet(HttpServletRequest request, HttpServletResponse response)
 * newMember.html
 * 폼에 입력한 값을 서버로 전송하고
 * 서버에서 받은 값을 클라이언트로 출력
+
+
+
+-------------
+
+자바스크립트로 서블릿에 요청하기 (p206)
+
+* 태그에서 이벤트 핸들러 속성 사용
+* 자바스크립트에서 태그의 name 속성
+* frmLogin.user_id.value
+* method : "post"
+* aciton : "login5"
+* submit() : 폼 전송
+
+
+
+---------
+
+### 서블릿의 DB 연동
+
+* 비즈니스 로직 처리
+* 웹 프로그램이 클라이언트의 요청에 대해 비즈니스 처리 기능을 이용해
+* 데이터 저장소에 데이터를 조회한 후
+* 서블릿의 응답 기능을 이용해서
+* 클라이언트에게 전송
+
+
+
+* `VO(DTO)` : 데이터 저장 클래스
+* `DAO` : 비즈니스 로직 처리 (DB에 저장하고 DB에서 데이터를 조회)
+* `서블릿` : 컨트롤러 역할
+  * 클라이언트 요청을 받아서 DAO에게 전송하고, 
+  * DAO가 처리한 결과를 받아서
+  * 클라이언트에게 전송
+* `클라이언트` : 결과 값을 받아서 웹 브라우저에게 출력
+
+
+
+#### DTO (Data Transfer Object)
+
+> 데이터 저장을 담당하는 클래스
+
+* `Transfer` 기능 수행
+  * `Controller, Service, View` 등 계층 간에서 데이터를 교환하기 위해 사용되는 객체
+  * 비즈니스 로직을 갖지 않는 순수한 데이터객체
+* `Getters / Setters` 메소드만 포함 (`생성자, toString()`)
+* 데이터 변경 (가변의 성격) 가능 : `Setters`
+
+
+
+#### VO (Value Object)
+
+> 데이터 저장을 담당하는 클래스
+
+* `Transfer` 기능 수행하지 않음
+* 값을 사용하는데 사용되는 객체 (변하지 않은 값을 사용)
+* 불변의 성격 : `read only` 의 속성
+* `Setters` 만 포함하고 `Getters` 기능은 없음
+* `DTO`와 혼용해서 사용 (일반적으로 같다고 사용)
+
+
+
+-----
+
+MemberDAO를 Singleton 패턴으로 변경
+
+```java
+// 싱글톤으로 할 경우
+// (1) static 객체(인스턴스 생성)
+private static MemberDAO instance = new MemberDAO();
+
+// (2) 생성자는 private으로 막음(new 연산자로 객체 생성하지 못하도록)
+private MemberDAO() { }
+
+// (3) 외부에서 호출해서 사용할 수 있는 메소드를 생성해서, 생성된 1개의 객체 반환
+public static MemberDAO getInstance() {
+	return instance;
+}
+```
+
+
+---------
+
+### 지금까지 사용한 데이터베이스 연동 방법
+
+> 웹 애플리케이션이 필요할 때마다 데이터베이스에 연결하여 작업하는 방식
+
+* 이 경우 문제 : 데이터베이스 연결 시간이 많이 걸린다는 것
+* 동시 접속자 수가 수천명이 넘으면 DB 연결 시간이 너무 오래 걸려서 비효율적
+* 이 문제를 해결하기 위해 웹 애플리케이션이 실행됨과 동시에 데이터베이스 연결을 미리 설정해 놓고
+* 필요할 때마다 미리 연결해 놓은 상태로 이용하면
+* 데이터베이스 연동 작업 시간이 줄어들 수 있음
+* 이렇게 미리 데이터베이스에 연결시켜서 연결 상태를 유지하는 기술을 `커넥션 풀`이라고 함
+
+
+
+### 커넥션 풀 (DBCP : DataBase Connection Pool)
+
+* 이렇게 미리 데이터베이스에 연결시켜서 연결 상태를 유지하는 기술
+* 일정 량의 DB Connection 객체를 Pool 저장해두고
+* 클라이언트 요청이 있을 때 마다 가져다 사용하고 반환하는 방법
+* 클라이언트에서 다수의 요청이 발생될 경우, 요청마다 DB Connection 객체를 생성하게 되면, 데이터베이스에 부하가 발생하기 때문에 커넥션 풀 기법 사용
+
+```
+클라이언트1		-> Thread1		=> Pool		=> DB
+클라이언트2		-> Thread2
+클라이언트3		-> Thread3
+클라이언트4		-> Thread4
+```
+
+
+
+### 커넥션 풀의 장점
+
+* 풀 속에 미리 커넥션이 생성되어 있기 때문에 커넥션 생성하는데 시간이 걸리지 않음
+* 커넥션을 계속해서 사용하고 반환하기 때문에 재사용 가능하므로,  많은 수의 커넥션을 만들지 않아도 됨
+* 매번 커넥션을 생성하고 해제하는데 시간이 소요되지 않으므로 애플리케이션 실행 속도 빨라짐
+* 생성되는 커넥션 수를 제어하기 때문에 동시 접속자 수가 증가해도 애플리케이션이 쉽게 다운되지 않음
+* 접속 시 사용할 커넥션이 없으면 대기 상태로 전환되고, 커넥션이 반환되면 대기 순서대로 커넥션 제공
+
+
+
+### 커넥션 풀 사용법
+
+* `Server`의 `context.xml`에 `<Resource>` 정보 추가
+* `Tomcat` 컨테이너가 데이터베이스 인증 작업 수행
+
+
+
+### JNDI (Java Naming and Directory Inteerface)
+
+* 디렉터리 서비스에서 제공하는 데이터 또는 객체를 `discover`하고 `lookup`하기 위한 `API`
+* 실제 웹 애플리케이션에서 커넥션 풀 객체를 구현할 때 Java SE에서 제공하는 `java.sql.DataSource` 클래스 이용
+* 웹 애플리케이션 실행 시 톰캣이 만들어놓은 `ConnectionPool` 객체에 접근할 때 `JNDI`를 이용
+* `context.lookup("java:comp/env/jdbc/oracle");`
+
+```xml
+<Resource
+    	name = "jdbc/oracle" // DataSource에 대한 JNDI 이름
+    	auth = "Container"	// 인증 주체
+    	type = "javax.sql.DataSource"	데이터베이스 종류 : DataSource
+    	driverClassName = "oracle.jdbc.OracleDriver"
+    	url = "jdbc:oracle:thin:@localhost:1521:xe"
+    	username = "newuser"
+    	password = "1234"
+    	maxActive = "50"	// 동시에 최대로 데이터베이스에 연결할 수 있는 Connection 수
+    	maxWait = "1000"	// 새로운 연결이 생길 때까지 기다릴 수 있는 최대 시간(1000:1초). 음수이면 무한 대기
+    	
+    />
+```
+
+
+
+-------------------
+
+연습문제 : 커넥션 풀 이용해서 데이터베이스 insert 기능 수행
+
+* 패키지 새로 생성
+* MemberVO 복사해서 사용
+* MemberDAO insertMember() 추가
+* 서블릿: MemberServlet3 : /member3
+* 입력 폼 생성 (html) : MemberVO에 맞춰서 입력 태그 작성
+
+
+
+-----------
+
+연습문제
+
+* sec05
+* 기존의 Book 테이블 사용
+* 커넥션 풀 (`<Resource>` 에 등록된 user 접속으로 Book 테이블 복사해 놓았음)
+* 도서 정보 등록 / 도서 정보 조회 / 도서 정보 삭제
+* BookVO
+* BookDAO : selectBook() / insertBook() / deleteBook()
+* BookSelectServlet : /bookSelect
+* BookInsertServlet : /bookInsert
+  * dao.insertBook() / dao.deleteBook()
