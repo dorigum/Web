@@ -1,10 +1,11 @@
-package sec05;
+package sec06;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.naming.Context;
@@ -57,7 +58,7 @@ public class BookDAO {
 				String bookName = rs.getString("bookName");
 				String bookAuthor = rs.getString("bookAuthor");
 				int bookPrice = rs.getInt("bookPrice");
-				String bookDate = rs.getDate("bookDate").toString();
+				Date bookDate = rs.getDate("bookDate");
 				int bookStock = rs.getInt("bookStock");
 				String pubNo = rs.getString("pubNo");
 			
@@ -117,7 +118,9 @@ public class BookDAO {
 			pstmt.setString(2, vo.getBookName());
 			pstmt.setString(3, vo.getBookAuthor());
 			pstmt.setInt(4, vo.getBookPrice());
-			pstmt.setString(5, vo.getBookDate());
+			
+			pstmt.setDate(5, new java.sql.Date(vo.getBookDate().getTime()));
+			
 			pstmt.setInt(6, vo.getBookStock());
 			pstmt.setString(7, vo.getPubNo());
 			

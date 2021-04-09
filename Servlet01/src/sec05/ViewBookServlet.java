@@ -11,10 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class BookSelectServlet
+ * Servlet implementation class ViewBookServlet
  */
-@WebServlet("/bookSelect")
-public class BookSelectServlet extends HttpServlet {
+@WebServlet("/viewBook")
+public class ViewBookServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -33,21 +33,19 @@ public class BookSelectServlet extends HttpServlet {
 	}
 	
 	protected void doHandle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		BookDAO dao = BookDAO.getInstance();
-		
-		List bookList = dao.selectBook();
-		
+		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=utf-8");
-		
 		PrintWriter out = response.getWriter();
+		
+		// 바인딩된 데이터 가져오기
+		List bookList = (List) request.getAttribute("bookList");
 		
 		out.println("<html><head></head><body>");
 		out.println("<table border='1'>");
 		out.println("<tr align='center' bgcolor='pink'>");
 		out.println("<td>번호</td><td>이름</td><td>저자</td><td>가격</td>"
-					+ "<td>발행일</td><td>재고</td><td>출판사번호</td><td>삭제</td></tr>");
-		
-		
+					+ "<td>발행일</td><td>재고</td><td>출판사번호</td></tr>");
+	
 		for(int i=0; i<bookList.size(); i++) {
 			BookVO vo = (BookVO) bookList.get(i);
 			String bookNo = vo.getBookNo();
@@ -57,19 +55,17 @@ public class BookSelectServlet extends HttpServlet {
 			String bookDate = vo.getBookDate();
 			int bookStock = vo.getBookStock();
 			String pubNo = vo.getPubNo();
-			
+		
 			out.println("<tr><td>" + bookNo + "</td><td>" +
-					bookName + "</td><td>" +
-					bookAuthor + "</td><td>" +
-					bookPrice + "</td><td>" +
-					bookDate + "</td><td>" +
-					bookStock + "</td><td>" +
-					pubNo + "</td><td>" +
-					"<a href='/Servlet01/bookInsert?command=del&bookNo=" + bookNo +
-					"'>삭제</a></td></tr>");
+									bookName + "</td><td>" +
+									bookAuthor + "</td><td>" +
+									bookPrice + "</td><td>" +
+									bookDate + "</td><td>" +
+									bookStock + "</td><td>" +
+									pubNo + "</td></tr>");
 	}
-		
-		out.println("</table></body></html>");
-		
+	
+	out.println("</table></body></html>");
+	
 	}
 }

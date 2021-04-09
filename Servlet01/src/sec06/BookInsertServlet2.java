@@ -1,6 +1,9 @@
-package sec05;
+package sec06;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,11 +11,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 /**
- * Servlet implementation class BookInsertServlet
+ * Servlet implementation class BookInsertServlet2
  */
-@WebServlet("/bookInsert")
-public class BookInsertServlet extends HttpServlet {
+@WebServlet("/bookInsert2")
+public class BookInsertServlet2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -29,7 +33,7 @@ public class BookInsertServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doHandle(request, response);
 	}
-	
+
 	protected void doHandle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		BookDAO dao = BookDAO.getInstance();
@@ -52,6 +56,14 @@ public class BookInsertServlet extends HttpServlet {
 		
 		String bookDate = year + "-" + month + "-" + date;
 		
+		Date bDate = null;
+		
+		try {
+			// 문자열을 날짜 타입으로 변환
+			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+			bDate = format.parse(bookDate);
+		} catch (ParseException e) {}
+		
 		int bookStock = Integer.parseInt(request.getParameter("bookStock"));
 		String pubNo = request.getParameter("pubNo");
 		
@@ -60,13 +72,13 @@ public class BookInsertServlet extends HttpServlet {
 		vo.setBookName(bookName);
 		vo.setBookAuthor(bookAuthor);
 		vo.setBookPrice(bookPrice);
-		vo.setBookDate(bookDate);
+		vo.setBookDate(bDate);
 		vo.setBookStock(bookStock);
 		vo.setPubNo(pubNo);
 		
 		dao.insertBook(vo);
 		
-		response.sendRedirect("bookSelect");
+		response.sendRedirect("bookSelect2");
 		}
 	}
 }

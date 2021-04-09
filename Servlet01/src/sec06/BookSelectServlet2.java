@@ -1,7 +1,8 @@
-package sec05;
+package sec06;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -11,10 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class BookSelectServlet
+ * Servlet implementation class BookSelectServlet2
  */
-@WebServlet("/bookSelect")
-public class BookSelectServlet extends HttpServlet {
+@WebServlet("/bookSelect2")
+public class BookSelectServlet2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -35,7 +36,7 @@ public class BookSelectServlet extends HttpServlet {
 	protected void doHandle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		BookDAO dao = BookDAO.getInstance();
 		
-		List bookList = dao.selectBook();
+		List list = dao.selectBook();
 		
 		response.setContentType("text/html; charset=utf-8");
 		
@@ -48,13 +49,13 @@ public class BookSelectServlet extends HttpServlet {
 					+ "<td>발행일</td><td>재고</td><td>출판사번호</td><td>삭제</td></tr>");
 		
 		
-		for(int i=0; i<bookList.size(); i++) {
-			BookVO vo = (BookVO) bookList.get(i);
+		for(int i=0; i<list.size(); i++) {
+			BookVO vo = (BookVO) list.get(i);
 			String bookNo = vo.getBookNo();
 			String bookName = vo.getBookName();
 			String bookAuthor = vo.getBookAuthor();
 			int bookPrice = vo.getBookPrice();
-			String bookDate = vo.getBookDate();
+			Date bookDate = vo.getBookDate();
 			int bookStock = vo.getBookStock();
 			String pubNo = vo.getPubNo();
 			
@@ -70,6 +71,6 @@ public class BookSelectServlet extends HttpServlet {
 	}
 		
 		out.println("</table></body></html>");
-		
-	}
+
+}
 }

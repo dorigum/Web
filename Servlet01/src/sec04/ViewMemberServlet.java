@@ -1,7 +1,8 @@
-package sec05;
+package sec04;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -11,10 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class BookSelectServlet
+ * Servlet implementation class ViewMemberServlet
  */
-@WebServlet("/bookSelect")
-public class BookSelectServlet extends HttpServlet {
+@WebServlet("/viewMembers")
+public class ViewMemberServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -33,43 +34,35 @@ public class BookSelectServlet extends HttpServlet {
 	}
 	
 	protected void doHandle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		BookDAO dao = BookDAO.getInstance();
-		
-		List bookList = dao.selectBook();
-		
+		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=utf-8");
-		
 		PrintWriter out = response.getWriter();
+		
+		// 바인딩된 데이터 가져오기
+		List memberList = (List) request.getAttribute("memberList");
 		
 		out.println("<html><head></head><body>");
 		out.println("<table border='1'>");
-		out.println("<tr align='center' bgcolor='pink'>");
-		out.println("<td>번호</td><td>이름</td><td>저자</td><td>가격</td>"
-					+ "<td>발행일</td><td>재고</td><td>출판사번호</td><td>삭제</td></tr>");
+		out.println("<tr align='center' bgcolor='lightgreen'>");
+		out.println("<td>아이디</td><td>비밀번호</td><td>이름</td>"
+					+ "<td>이메일</td><td>가입일</td></tr>");
+	
+	for(int i=0; i<memberList.size(); i++) {
+		MemberVO vo = (MemberVO) memberList.get(i);
+		String id = vo.getId();
+		String pwd = vo.getPwd();
+		String name = vo.getName();
+		String email = vo.getEmail();
+		Date joinDate = vo.getJoinDate();
 		
-		
-		for(int i=0; i<bookList.size(); i++) {
-			BookVO vo = (BookVO) bookList.get(i);
-			String bookNo = vo.getBookNo();
-			String bookName = vo.getBookName();
-			String bookAuthor = vo.getBookAuthor();
-			int bookPrice = vo.getBookPrice();
-			String bookDate = vo.getBookDate();
-			int bookStock = vo.getBookStock();
-			String pubNo = vo.getPubNo();
-			
-			out.println("<tr><td>" + bookNo + "</td><td>" +
-					bookName + "</td><td>" +
-					bookAuthor + "</td><td>" +
-					bookPrice + "</td><td>" +
-					bookDate + "</td><td>" +
-					bookStock + "</td><td>" +
-					pubNo + "</td><td>" +
-					"<a href='/Servlet01/bookInsert?command=del&bookNo=" + bookNo +
-					"'>삭제</a></td></tr>");
+		out.println("<tr><td>" + id + "</td><td>" +
+				pwd + "</td><td>" +
+				name + "</td><td>" +
+				email + "</td><td>" +
+				joinDate + "</td></tr>");
 	}
-		
-		out.println("</table></body></html>");
-		
+	
+	out.println("</table></body></html>");
+	
 	}
 }

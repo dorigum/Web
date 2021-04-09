@@ -1,17 +1,19 @@
-package sec05;
+package sec06;
+
+import java.util.Date;
 
 public class BookVO {
 	String bookNo;
 	String bookName;
 	String bookAuthor;
 	int bookPrice;
-	String bookDate;
+	Date bookDate;
 	int bookStock;
 	String pubNo;
 	
 	public BookVO() { }
 
-	public BookVO(String bookNo, String bookName, String bookAuthor, int bookPrice, String bookDate, int bookStock,
+	public BookVO(String bookNo, String bookName, String bookAuthor, int bookPrice, Date bookDate, int bookStock,
 			String pubNo) {
 		this.bookNo = bookNo;
 		this.bookName = bookName;
@@ -54,11 +56,11 @@ public class BookVO {
 		this.bookPrice = bookPrice;
 	}
 
-	public String getBookDate() {
+	public Date getBookDate() {
 		return bookDate;
 	}
 
-	public void setBookDate(String bookDate) {
+	public void setBookDate(Date bookDate) {
 		this.bookDate = bookDate;
 	}
 
