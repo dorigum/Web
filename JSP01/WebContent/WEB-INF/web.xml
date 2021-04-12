@@ -9,4 +9,14 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>member_menu</display-name>
+    <servlet-name>member_menu</servlet-name>
+    <jsp-file>/sec03/member_menu.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>member_menu</servlet-name>
+    <url-pattern>/member_menu</url-pattern>
+  </servlet-mapping>
 </web-app>
