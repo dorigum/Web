@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>회원 가입</title>
+		<script src="jquery-3.6.0.min.js"></script>
+		<script>
+			$(function(){
+				$('$frmMember').on("submit", function(){
+					// serialize() : 폼에 입력한 값을 쿼리 스트링 방식의 데이터로 변환
+					// id = abcd%pwd=1234,....
+					var formData = $(this).serialize();
+					
+					$.ajax({
+						url:"http://localhost:8082/Servlet01/formAjax",
+						type:"post",
+						data:formData,
+						success:function(result){
+							alert(result);
+						},
+						error:function(data, textStatus){
+							alert("전송 실패");
+						}
+					});
+					
+					return false; // 다음 페이지로 넘어가지 않게 차단
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<h3>회원 가입</h3>
+		<form id="frmMember" method="post" action="member3">
+			<table>
+				<tr><td>아이디 </td>
+				<td><input type="text" name="id"></td></tr>
+				<tr><td>비밀번호 </td>
+				<td><input type="password" name="pwd"></td></tr>
+				<tr><td>이름 </td>
+				<td><input type="text" name="name"></td></tr>
+				<tr><td>이메일 </td>
+				<td><input type="text" name="email"></td></tr>
+			</table>
+			<input type="submit" value="가입">
+			<input type="reset" value="취소">
+			
+			</form>
+	</body>
+</html>
